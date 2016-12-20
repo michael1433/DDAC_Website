@@ -1,0 +1,48 @@
+﻿@model DDAC_Website.Models.Cruise
+@{
+    ViewBag.Title = "_CompareCruise";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div  class="panel panel-default">
+    <div class="panel-heading" >
+        @Model.cruise_name <span style="float:right">
+            @Ajax.ActionLink("Back to Cruise List", "Compare_New", "Cruise", new { id = (int)@ViewBag.ID, selectedID = (int)@ViewBag.selectedID }, new AjaxOptions
+       {
+           HttpMethod = "GET",
+           UpdateTargetId = "compareCruise",
+           InsertionMode = InsertionMode.Replace
+
+
+       })
+        </span>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+
+            <tr>
+                <th>Days</th>
+                <th>Location</th>
+                <th>Date</th>
+            </tr>
+
+            @{ int i = 1;}
+            @foreach (var item in ViewBag.Location)
+            {
+
+                <tr>
+                    <td>@i</td>
+
+                    <td>@item.Location_Name</td>
+                    <td>@item.travel_Date.ToString("yyyy/MM/dd")</td>
+
+                </tr>
+                i++;
+
+            }
+        </table>
+    </div>
+
+</div>

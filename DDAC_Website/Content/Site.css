@@ -1,0 +1,92 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+ 
+/* font-face*/
+@font-face{
+    font-family:Gotham;
+    src : url('~/fonts/Gotham XNarrow Bold.otf')format('opentype');
+}
+
+.special-fonts{
+    font-family:'Gotham','Arial', 'Helvetica', 'sans-serif';
+    font-weight:bold;
+
+}
+
+.parent{
+    position : absolute;
+}
+
+.child{
+    position:relative;
+    bottom:-550px;
+ 
+}
+
+.selection-menu{
+    background-color:#005A31;
+    height:100px;
+}
+
+.inner-selection-menu{
+    padding-top:35px;
+    margin-left:30%;
+}
+
+.text-area{
+    max-width:100%;
+    width:60%;
+
+
+}
+
+.my-form{
+    max-width:100%;
+    width:100%;
+    margin-left:1%;
+}
+
+.form-elements-spacing{
+    margin-left:2%;
+}
+
+.custom{
+    width:70%;
+    color:#555;
+    border : 1px solid #ccc;
+    border-radius:5px;
+    margin:0 auto;
+}
+
+.inner-div{
+    margin-left:15%;
+    margin-top:2%;
+    margin-bottom:2%;
+
+}
+
+.my-form div{
+    padding-top:0.5%;
+}

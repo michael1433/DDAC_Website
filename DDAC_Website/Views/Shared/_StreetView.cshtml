@@ -1,0 +1,6 @@
+﻿
+@{
+    ViewBag.Title = "_StreetView";
+}
+
+<img src="@Url.Action("ShowGoogleStreetViewPhoto", new { googleStreetViewAddress = ViewBag.Coordinate })" />

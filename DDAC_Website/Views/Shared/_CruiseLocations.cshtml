@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<DDAC_Website.Models.Location>
+@{
+    ViewBag.Title = "_CruiseLocations";
+}
+
+
+
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">Tour Locations</div>
+    <div class="panel-body" style="position:relative">
+
+        @foreach (var item in Model)
+        {
+            <p>
+                @Ajax.ActionLink(item.Location_Name.ToString(), "Location", "Cruise", new { locationName = item.Location_Name.ToString() },
+           new AjaxOptions
+           {
+               HttpMethod = "GET",
+               UpdateTargetId = "LocationImage",
+               InsertionMode = InsertionMode.Replace
+           })
+
+            </p>
+        } 
+
+        <div id="LocationImage" ,style="position:absolute;top:10px;right:10px">
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DDAC_Website.Models.State>
+@{
+    ViewBag.Title = "_StateRooms";
+}
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">StateRooms</div>
+    <div class="panel-body">
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+        @using (Ajax.BeginForm("UpdateStateRooms", "State", new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "updatePrice",
+            InsertionMode = InsertionMode.Replace
+        }))
+        {
+            <p>Num of guest in a room :  @Html.DropDownList("numOfGuest", null, "0", new { onchange = "$(this.form).submit()" })</p>
+
+    
+
+    }
+
+
+        <table class="table table-hover">
+
+            <tr> 
+                @foreach (var item in Model)
+                {
+                    <th>@Html.DisplayFor(modelItem => item.stateRoomType)</th>
+
+                }
+            </tr>
+
+            <tr id="updatePrice">
+                @foreach (var item in Model)
+                {
+                    <td>@Html.DisplayFor(modelItem => item.stateRoomPrice)</td>
+                }
+            </tr>
+
+        </table>
+    </div>
+
+</div>

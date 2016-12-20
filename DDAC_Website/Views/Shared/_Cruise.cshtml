@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DDAC_Website.Models.Cruise>
+@{
+    ViewBag.Title = "_Cruise";
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-default">
+
+        <div class="panel-heading">@Html.DisplayFor(modelItem => item.cruise_name)</div>
+
+        <div class="panel-body">
+
+                    @Html.ActionLink("View Details", "ViewCruise", "Cruise",new { id = (int)item.id },null) |
+
+
+                    @Html.ActionLink("Compare", "Compare", "Cruise", new { id = (int)item.id }, null)
+
+        </div>
+
+
+
+    </div>
+}

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DDAC_Website.Models.Location>
+@{
+    ViewBag.Title = "_Schedule";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Schedule</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+
+            <tr>
+                <th>Days</th>
+                <th>Location</th>
+                <th>Date</th>
+            </tr>
+
+            @{ int i = 1;}
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@i</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.Location_Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.travel_Date)</td>
+
+                </tr>
+                i++;
+
+            }
+        </table>
+    </div>
+
+</div>

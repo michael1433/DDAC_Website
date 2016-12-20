@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "_AllCruise";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="compareCruise" class="panel panel-default" style="width:100%">
+
+        <div class="panel-heading">All Cruises</div>
+        <div class="panel-body">
+
+            @foreach (var item in ViewBag.OtherCruise)
+            {
+                <p>
+
+                    @Ajax.ActionLink((string)item.cruise_name, "CompareSchedule", new { id = (int)item.id, selectedID = ViewBag.selectedID}, new AjaxOptions
+               {
+                   HttpMethod = "GET",
+                   UpdateTargetId = "compareCruise",
+                   InsertionMode = InsertionMode.Replace
+
+               })
+                </p>
+
+            }
+        </div>
+
+    </div>
+
+

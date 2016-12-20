@@ -1,0 +1,126 @@
+﻿@model DDAC_Website.Models.CruiseConfirmation
+
+@{
+    ViewBag.Title = "bookCruise";
+}
+
+
+
+
+<div class="custom">
+
+    <div class="inner-div">
+        <div style="margin-left:1%">
+            <p>Ship Name: </p>
+            <p>Cruise Name:  @Html.Raw(ViewBag.cruiseName)</p>
+            <p>Departure Date: @Html.Raw(ViewBag.cruiseDeparture.ToString("yyyy/MM/dd"))</p>
+        </div>
+
+        <div>
+            @using (Html.BeginForm("Confirmation", "Cruise", new { }, FormMethod.Post, new { @class = "form-inline my-form" }))
+            {
+
+                <div class="form-group">
+                    <label>First Name</label>
+                    @Html.TextBoxFor(m => m.f_name, null, new { @class = "form-control", @placeholder = "First Name" })
+                    @Html.ValidationMessageFor(m => m.f_name, "", new { @class = "text-danger" })
+
+
+                </div>
+
+                <div class="form-group form-elements-spacing">
+                    <label>Last Name</label>
+                    @Html.TextBoxFor(m => m.l_name, null, new { @class = "form-control ", @placeholder = "Last Name" })
+                    @Html.ValidationMessageFor(m => m.l_name, "", new { @class = "text-danger" })
+
+
+                </div>
+
+                <div class="form-group" style="margin-top:1%;width:100%">
+                    <label>Address</label><br />
+                    @Html.TextAreaFor(m => m.address, new { @class = "form-control text-area", @placeholder = "Address", @rows = 8 })
+                    @Html.ValidationMessageFor(m => m.address, "", new { @class = "text-danger" })
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    @Html.TextBoxFor(m => m.city, null, new { @class = "form-control", @placeholder = "City" })
+                    @Html.ValidationMessageFor(m => m.city, "", new { @class = "text-danger" })
+
+
+                </div>
+                <div class="form-group form-elements-spacing">
+                    <label>State</label>
+                    @Html.TextBoxFor(m => m.state, null, new { @class = "form-control ", @placeholder = "State" })
+                    @Html.ValidationMessageFor(m => m.state, "", new { @class = "text-danger" })
+
+
+                </div>
+                <div class="form-group form-elements-spacing">
+                    <label>Zipcode</label>
+                    @Html.TextBoxFor(m => m.zipcode, null, new { @class = "form-control ", @placeholder = "Zipcode" })
+                    @Html.ValidationMessageFor(m => m.zipcode, "", new { @class = "text-danger" })
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile No.</label>
+                    @Html.TextBoxFor(m => m.mobile_num, null, new { @class = "form-control ", @placeholder = "Mobile No." })
+                    @Html.ValidationMessageFor(m => m.mobile_num, "", new { @class = "text-danger" })
+
+
+                </div>
+                <div class="form-group form-elements-spacing">
+                    <label>E-mail</label>
+                    @Html.TextBoxFor(m => m.email, null, new { @class = "form-control ", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <label>Select State Room</label>
+                        @Html.DropDownList("stateRooms", "Choose Room")
+                    </div>
+                    <div class="form-group form-elements-spacing">
+                        <label>Quantity</label>
+                        @Html.DropDownList("quantity", "Num of Rooms")
+                    </div>
+                    <div class="form-group form-elements-spacing">
+                        <label>Num of People in a Room</label>
+                        @Html.DropDownList("quantity", "Num of People")
+                    </div>
+                </div>
+                <div>
+
+                    <div>
+                        <div id="payment-summary">
+                            <label>State Room Price: 0.00</label><br />
+                            <label>Num. of Rooms: 0</label><br />
+                            <label>Num. of People in Room: 0</label><br />
+                            <label>Total</label><br />
+                        </div>
+                        <fieldset disabled>
+                            @Html.TextBox("TotalPayment", null, new { @placeholder = "Total Payment", @class = "form-control", @id = "disabledTextInput" })
+                        </fieldset>
+                        <div>
+                            <input type="submit" class="btn btn-primary" value="Make Payment" />
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+

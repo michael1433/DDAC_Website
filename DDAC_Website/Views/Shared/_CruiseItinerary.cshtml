@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<byte[]>
+@{
+    ViewBag.Title = "_CruiseItinerary";
+}
+
+<div class="panel panel-default" style="width:50%;margin-left:1%">
+
+    <div class="panel-heading">Itinerary</div>
+
+    <div class="panel-body">
+
+        @{ var imgSrc = "";}
+        @foreach (var item in Model)
+        {
+            var base64 = Convert.ToBase64String(item);
+            imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+            <img src="@imgSrc" />
+        }
+
+    </div>
+
+</div>
